@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
     faPlay, 
@@ -7,7 +7,6 @@ import {
     faPause      
 } from '@fortawesome/free-solid-svg-icons';
 import {getTime} from '../util';
-import { parse } from '@fortawesome/fontawesome-svg-core';
 
 const Player = ({ 
     currentSong, 
@@ -18,8 +17,6 @@ const Player = ({
     songs,
     setSongs }) => {
 
-
-    
     //States
     const [songInfo, setSongInfo] = useState({
         currentTime: 0,
@@ -135,7 +132,7 @@ const Player = ({
              size='2x' 
              icon={faAngleRight} />
           </div>
-          <audio 
+          <audio
           onTimeUpdate={timeUpdateHandler}
           onLoadedMetadata={timeUpdateHandler}
           onEnded={songEndHandler}

@@ -1,6 +1,15 @@
 import React from 'react';
+import {motion} from 'framer-motion';
+import {slidSongs} from '../animations';
 
-const LibrarySong = ({song, songs, setSongs, setIsPlaying, setCurrentSong, audioRef, isPlaying}) => {
+const LibrarySong = ({
+    song, 
+    songs, 
+    setSongs, 
+    setCurrentSong, 
+    audioRef,
+    libraryStatus, 
+    isPlaying}) => {
 
     // Event Handlers
     const songSelectHandler = async () => {
@@ -21,18 +30,18 @@ const LibrarySong = ({song, songs, setSongs, setIsPlaying, setCurrentSong, audio
         });
         
         setSongs(newSongs)
-        if (isPlaying) audioRef.current.play();
-        
+        if (isPlaying) audioRef.current.play(); 
     }
 
+
     return (
-        <div onClick={songSelectHandler} className={`library-song ${song.active ? 'selected' : ""}`}>
+        <motion.div onClick={songSelectHandler} className={`library-song ${song.active ? 'selected' : ""}`}>
             <img src={song.cover} alt={song.name}></img>
             <div className="song-description">
                 <h3>{song.name}</h3>
                 <h4>{song.artist}</h4>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

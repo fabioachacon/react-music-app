@@ -1,16 +1,26 @@
-import React, {useEffect} from  'react';
+import React from  'react';
 import LibrarySong from './LibrarySong';
+import {motion} from 'framer-motion';
+import {slidSideBar, slidSongs} from '../animations'
 
+const Library = ({
+    songs, 
+    setCurrentSong, 
+    setIsPlaying, 
+    audioRef, 
+    isPlaying, 
+    setSongs, 
+    libraryStatus 
+}) => {
+    
 
-
-const Library = ({songs, setCurrentSong, setIsPlaying, audioRef, isPlaying, setSongs, libraryStatus }) => {
-
-
+    // className={`library ${libraryStatus ? 'active-library' : ''}`
     return (
-        <div className={`library ${libraryStatus ? 'active-library' : ''}`}>
+        <motion.div variants={slidSideBar} initial={false} animate={libraryStatus ? 'open' : 'closed'}  className={`library ${libraryStatus ? '' : ''}`}>
            <h2>Library</h2>
-           <div className="library-songs">
+           <motion.div className="library-songs">
                {songs.map((song) => <LibrarySong
+               libraryStatus={libraryStatus}
                songs={songs}
                setSongs={setSongs}
                audioRef={audioRef}
@@ -20,9 +30,9 @@ const Library = ({songs, setCurrentSong, setIsPlaying, audioRef, isPlaying, setS
                song={song}
                key={song.id}
                />)}
-           </div>
-        </div>
-    )
+           </motion.div>
+        </motion.div>
+    );
 }
 
 
