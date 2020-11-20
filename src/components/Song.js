@@ -8,6 +8,7 @@ const Song = ({currentSong, isPlaying}) => {
         <div className={`song-container ${isPlaying ? "animated-image" : ''}`}>
             <motion.img 
             whileHover={borderAnimHover}
+            whileTap={borderAnimHover}
             src={currentSong.cover} 
             alt='song-cover'></motion.img>
             <h2>{currentSong.name}</h2>
