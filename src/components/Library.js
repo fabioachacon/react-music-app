@@ -16,9 +16,9 @@ const Library = ({
 
     // className={`library ${libraryStatus ? 'active-library' : ''}`
     return (
-        <motion.div variants={slidSideBar} initial={false} animate={libraryStatus ? 'open' : 'closed'}  className={`library ${libraryStatus ? '' : ''}`}>
+        <div className={`library ${libraryStatus ? 'active-library' : ''}`}>
            <h2>Library</h2>
-           <motion.div className="library-songs">
+           <div className="library-songs">
                {songs.map((song) => <LibrarySong
                libraryStatus={libraryStatus}
                songs={songs}
@@ -30,8 +30,8 @@ const Library = ({
                song={song}
                key={song.id}
                />)}
-           </motion.div>
-        </motion.div>
+           </div>
+        </div>
     );
 }
 
