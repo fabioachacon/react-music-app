@@ -1,7 +1,7 @@
 import React from  'react';
 import LibrarySong from './LibrarySong';
 import {motion} from 'framer-motion';
-import {slidSideBar, slidSongs} from '../animations'
+import { slidSideBar } from '../animations'
 
 const Library = ({
     songs, 
@@ -16,9 +16,9 @@ const Library = ({
 
     // className={`library ${libraryStatus ? 'active-library' : ''}`
     return (
-        <div className={`library ${libraryStatus ? 'active-library' : ''}`}>
+        <motion.div variants={slidSideBar} initial={false} animate={libraryStatus ? 'open' : 'closed'} className='library'>
            <h2>Library</h2>
-           <div className="library-songs">
+           <motion.div className="library-songs">
                {songs.map((song) => <LibrarySong
                libraryStatus={libraryStatus}
                songs={songs}
@@ -30,8 +30,8 @@ const Library = ({
                song={song}
                key={song.id}
                />)}
-           </div>
-        </div>
+           </motion.div>
+        </motion.div>
     );
 }
 

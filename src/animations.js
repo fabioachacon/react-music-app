@@ -5,7 +5,8 @@ export const slidSideBar = {
         transition: {
             duration: .5,
             ease: 'easeOut',
-            staggerChildren: 0.25
+            when: 'beforeChildren',
+    
         }
     },
     closed: {
@@ -19,14 +20,14 @@ export const slidSideBar = {
 
 export const slidSongs = {
     hidden: {
-        y: 300,
+        x: -50,
         opacity: 0
     },
     show: {
-        y: 0,
+        x: 0,
         opacity: 1,
         transition: {
-            duration: 1,
+            duration: 0.5,
         }
     }
 }
@@ -40,6 +41,7 @@ export const scaleUp = {
         ease: 'easeOut'
     }
 }
+
 
 export const borderAnimHover = {
     borderRadius: '20%', 

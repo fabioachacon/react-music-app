@@ -33,9 +33,8 @@ const LibrarySong = ({
         if (isPlaying) audioRef.current.play(); 
     }
 
-
     return (
-        <motion.div onClick={songSelectHandler} className={`library-song ${song.active ? 'selected' : ""}`}>
+        <motion.div variants={slidSongs} initial={false} animate={libraryStatus ? 'show' : 'hidden'} onClick={songSelectHandler} className={`library-song ${song.active ? 'selected' : ""}`}>
             <img src={song.cover} alt={song.name}></img>
             <div className="song-description">
                 <h3>{song.name}</h3>
